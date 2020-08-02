@@ -1,0 +1,450 @@
+
+
+U-Boot 2017.01 (Sep 07 2019 - 07:34:26 -0700)
+
+Model: Zynq ALINX Development Board
+Board: Xilinx Zynq
+I2C:   ready
+DRAM:  ECC disabled 256 MiB
+MMC:   sdhci@e0100000: 0 (SD)
+reading uboot.env
+
+** Unable to read "uboot.env" from mmc0:0 **
+Using default environment
+
+## Error: flags type check failure for "serverip" <= "AUTO" (type: i)
+himport_r: can't insert "serverip=AUTO" into hash table
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ZYNQ GEM: e000b000, phyaddr ffffffff, interface gmii
+eth0: ethernet@e000b000
+U-BOOT for alinx
+
+Hit any key to stop autoboot:  4  3  2  1  0 
+Device: sdhci@e0100000
+Manufacturer ID: 9f
+OEM: 5449
+Name: SD32G 
+Tran Speed: 50000000
+Rd Block Len: 512
+SD version 3.0
+High Capacity: Yes
+Capacity: 29 GiB
+Bus Width: 4-bit
+Erase Group Size: 512 Bytes
+reading image.ub
+9502792 bytes read in 1002 ms (9 MiB/s)
+## Loading kernel from FIT Image at 10000000 ...
+   Using 'conf@1' configuration
+   Verifying Hash Integrity ... OK
+   Trying 'kernel@0' kernel subimage
+     Description:  Linux Kernel
+     Type:         Kernel Image
+     Compression:  uncompressed
+     Data Start:   0x100000d4
+     Data Size:    3756200 Bytes = 3.6 MiB
+     Architecture: ARM
+     OS:           Linux
+     Load Address: 0x01008000
+     Entry Point:  0x01008000
+     Hash algo:    sha1
+     Hash value:   617c952ee6f31e4589a8d3ff21d0c9597d3f1bda
+   Verifying Hash Integrity ... sha1+ OK
+## Loading ramdisk from FIT Image at 10000000 ...
+   Using 'conf@1' configuration
+   Trying 'ramdisk@0' ramdisk subimage
+     Description:  ramdisk
+     Type:         RAMDisk Image
+     Compression:  uncompressed
+     Data Start:   0x1039a088
+     Data Size:    5725133 Bytes = 5.5 MiB
+     Architecture: ARM
+     OS:           Linux
+     Load Address: unavailable
+     Entry Point:  unavailable
+     Hash algo:    sha1
+     Hash value:   d498b0103d9903ca9588cca2e325fbd43dee8fad
+   Verifying Hash Integrity ... sha1+ OK
+## Loading fdt from FIT Image at 10000000 ...
+   Using 'conf@1' configuration
+   Trying 'fdt@0' fdt subimage
+     Description:  Flattened Device Tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x10395270
+     Data Size:    19816 Bytes = 19.4 KiB
+     Architecture: ARM
+     Hash algo:    sha1
+     Hash value:   b7b87b850ed056302c806e1d2b4835b1ff1b3eee
+   Verifying Hash Integrity ... sha1+ OK
+   Booting using the fdt blob at 0x10395270
+   Loading Kernel Image ... OK
+   Loading Ramdisk to 08a8a000, end 08fffbcd ... OK
+   Loading Device Tree to 08a82000, end 08a89d67 ... OK
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+Booting Linux on physical CPU 0x0
+
+Linux version 4.9.0-xilinx (gong@ubuntu) (gcc version 6.2.1 20161016 (Linaro GCC 6.2-2016.11) ) #1 SMP PREEMPT Fri Sep 6 17:54:58 PDT 2019
+
+CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=18c5387d
+
+CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+
+OF: fdt:Machine model: Zynq ALINX Development Board
+
+bootconsole [earlycon0] enabled
+
+cma: Reserved 16 MiB at 0x0f000000
+
+Memory policy: Data cache writealloc
+
+percpu: Embedded 14 pages/cpu @cedc7000 s25932 r8192 d23220 u57344
+
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 65024
+
+Kernel command line: console=ttyPS0,115200 earlyprintk
+
+PID hash table entries: 1024 (order: 0, 4096 bytes)
+
+Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+
+Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+
+Memory: 227520K/262144K available (6144K kernel code, 203K rwdata, 1464K rodata, 1024K init, 230K bss, 18240K reserved, 16384K cma-reserved, 0K highmem)
+
+Virtual kernel memory layout:
+
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+
+    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+
+    vmalloc : 0xd0800000 - 0xff800000   ( 752 MB)
+
+    lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+
+    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+
+    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+
+      .text : 0xc0008000 - 0xc0700000   (7136 kB)
+
+      .init : 0xc0900000 - 0xc0a00000   (1024 kB)
+
+      .data : 0xc0a00000 - 0xc0a32d40   ( 204 kB)
+
+       .bss : 0xc0a32d40 - 0xc0a6c598   ( 231 kB)
+
+Preemptible hierarchical RCU implementation.
+
+	Build-time adjustment of leaf fanout to 32.
+
+	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
+
+RCU: Adjusting geometry for rcu_fanout_leaf=32, nr_cpu_ids=2
+
+NR_IRQS:16 nr_irqs:16 16
+
+efuse mapped to d0800000
+
+slcr mapped to d0802000
+
+L2C: platform modifies aux control register: 0x72360000 -> 0x72760000
+
+L2C: DT/platform modifies aux control register: 0x72360000 -> 0x72760000
+
+L2C-310 erratum 769419 enabled
+
+L2C-310 enabling early BRESP for Cortex-A9
+
+L2C-310 full line of zeros enabled for Cortex-A9
+
+L2C-310 ID prefetch enabled, offset 1 lines
+
+L2C-310 dynamic clock gating enabled, standby mode enabled
+
+L2C-310 cache controller enabled, 8 ways, 512 kB
+
+L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x76760001
+
+zynq_clock_init: clkc starts at d0802100
+
+Zynq clock init
+
+sched_clock: 64 bits at 333MHz, resolution 3ns, wraps every 4398046511103ns
+
+clocksource: arm_global_timer: mask: 0xffffffffffffffff max_cycles: 0x4ce07af025, max_idle_ns: 440795209040 ns
+
+Switching to timer-based delay loop, resolution 3ns
+
+clocksource: ttc_clocksource: mask: 0xffff max_cycles: 0xffff, max_idle_ns: 537538477 ns
+
+timer #0 at d080a000, irq=17
+
+Console: colour dummy device 80x30
+
+Calibrating delay loop (skipped), value calculated using timer frequency.. 666.66 BogoMIPS (lpj=3333333)
+
+pid_max: default: 32768 minimum: 301
+
+Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+
+Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+
+CPU: Testing write buffer coherency: ok
+
+CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+
+Setting up static identity map for 0x100000 - 0x100058
+
+CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+
+Brought up 2 CPUs
+
+SMP: Total of 2 processors activated (1333.33 BogoMIPS).
+
+CPU: All CPU(s) started in SVC mode.
+
+devtmpfs: initialized
+
+VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+
+pinctrl core: initialized pinctrl subsystem
+
+NET: Registered protocol family 16
+
+DMA: preallocated 256 KiB pool for atomic coherent allocations
+
+cpuidle: using governor menu
+
+hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
+
+hw-breakpoint: maximum watchpoint size is 4 bytes.
+
+zynq-ocm f800c000.ocmc: ZYNQ OCM pool: 256 KiB @ 0xd0840000
+
+zynq-pinctrl 700.pinctrl: zynq pinctrl initialized
+
+e0001000.serial: ttyPS0 at MMIO 0xe0001000 (irq = 27, base_baud = 6249999) is a xuartps
+?k讒??W/?LW怸稾倍ed
+console [ttyPS0] enabled
+
+bootconsole [earlycon0] disabled
+bootconsole [earlycon0] disabled
+
+GPIO IRQ not connected
+XGpio: /amba_pl/gpio@41200000: registered, base is 1022
+vgaarb: loaded
+SCSI subsystem initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+media: Linux media interface: v0.10
+Linux video capture interface: v2.00
+pps_core: LinuxPPS API ver. 1 registered
+pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+PTP clock support registered
+EDAC MC: Ver: 3.0.0
+FPGA manager framework
+fpga-region fpga-full: FPGA Region probed
+Advanced Linux Sound Architecture Driver Initialized.
+clocksource: Switched to clocksource arm_global_timer
+NET: Registered protocol family 2
+TCP established hash table entries: 2048 (order: 1, 8192 bytes)
+TCP bind hash table entries: 2048 (order: 2, 16384 bytes)
+TCP: Hash tables configured (established 2048 bind 2048)
+UDP hash table entries: 256 (order: 1, 8192 bytes)
+UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+NET: Registered protocol family 1
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+Trying to unpack rootfs image as initramfs...
+Freeing initrd memory: 5592K (c8a8a000 - c9000000)
+hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
+futex hash table entries: 512 (order: 3, 32768 bytes)
+workingset: timestamp_bits=30 max_order=16 bucket_order=0
+jffs2: version 2.2. (NAND) (SUMMARY)  漏 2001-2006 Red Hat, Inc.
+io scheduler noop registered
+io scheduler deadline registered
+io scheduler cfq registered (default)
+dma-pl330 f8003000.dmac: Loaded driver for PL330 DMAC-241330
+dma-pl330 f8003000.dmac: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-4 Num_Events-16
+xilinx-vdma 43000000.dma: Xilinx AXI VDMA Engine Driver Probed!!
+xilinx-vdma 43010000.dma: Xilinx AXI VDMA Engine Driver Probed!!
+xdevcfg f8007000.devcfg: ioremap 0xf8007000 to d081c000
+fpga_probe()
+fpga_st.isload()
+MAX_FPGA_LEN()
+fpga_st.sem()
+res->start 1136787456 , size65536 L
+IORESOURCE_MEM0()
+IORESOURCE_MEM()
+misc_register()
+[drm] Initialized
+[drm] load() is defered & will be called again
+brd: module loaded
+loop: module loaded
+libphy: Fixed MDIO Bus: probed
+CAN device driver interface
+libphy: MACB_mii_bus: probed
+macb e000b000.ethernet eth0: Cadence GEM rev 0x00020118 at 0xe000b000 irq 28 (00:0a:35:00:1e:53)
+Generic PHY e000b000.etherne:00: attached PHY driver [Generic PHY] (mii_bus:phy_addr=e000b000.etherne:00, irq=-1)
+e1000e: Intel(R) PRO/1000 Network Driver - 3.2.6-k
+e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+ehci-pci: EHCI PCI platform driver
+usbcore: registered new interface driver usb-storage
+mousedev: PS/2 mouse device common for all mice
+i2c /dev entries driver
+cdns-i2c e0004000.i2c: 100 kHz mmio e0004000 irq 23
+alinx 0-0038: touchscreen probe failed
+cdns-i2c e0005000.i2c: 100 kHz mmio e0005000 irq 24
+cdns-i2c e0005000.i2c: timeout waiting on completion
+ov5640 1-003c: reg_write: i2c write error, reg: 3008
+cdns-i2c e0005000.i2c: timeout waiting on completion
+ov5640 1-003c: reg_write: i2c write error, reg: 3008
+cdns-i2c e0005000.i2c: timeout waiting on completion
+ov5640 1-003c: reg_write: i2c write error, reg: 3008
+cdns-i2c e0005000.i2c: timeout waiting on completion
+ov5640 1-003c: reg_read: i2c read error, reg: 300a
+cdns-i2c e0005000.i2c: timeout waiting on completion
+ov5640 1-003c: reg_read: i2c read error, reg: 300b
+ov5640 1-003c: Chip ID 0x74c0 detected
+cdns-i2c e0005000.i2c: timeout waiting on completion
+ov5640 1-003c: reg_read: i2c read error, reg: 300a
+xilinx-video amba_pl:vcap_ov5640_0: device registered
+cdns-wdt f8005000.watchdog: Xilinx Watchdog Timer at d08cb000 with timeout 10s
+EDAC MC: ECC not enabled
+Xilinx Zynq CpuIdle Driver started
+sdhci: Secure Digital Host Controller Interface driver
+sdhci: Copyright(c) Pierre Ossman
+sdhci-pltfm: SDHCI platform and OF driver helper
+mmc0: SDHCI controller on e0100000.sdhci [e0100000.sdhci] using ADMA
+ledtrig-cpu: registered to indicate activity on CPUs
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+NET: Registered protocol family 10
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+NET: Registered protocol family 17
+can: controller area network core (rev 20120528 abi 9)
+NET: Registered protocol family 29
+can: raw protocol (rev 20120528)
+can: broadcast manager protocol (rev 20161123 t)
+can: netlink gateway (rev 20130117) max_hops=1
+Registering SWP/SWPB emulation handler
+OF: graph: no port node found in /amba_pl/xilinx_drm
+[drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+[drm] No driver support for vblank timestamp query.
+mmc0: Problem switching card into high-speed mode!
+mmc0: new SDHC card at address 0001
+mmcblk0: mmc0:0001 SD32G 29.0 GiB 
+Console: switching to colour frame buffer device 128x37
+ mmcblk0:
+xilinx-drm amba_pl:xilinx_drm: fb0:  frame buffer device
+[drm] Initialized xilinx_drm 1.0.0 20130509 on minor 0
+hctosys: unable to open rtc device (rtc0)
+of_cfs_init
+of_cfs_init: OK
+ALSA device list:
+  No soundcards found.
+Freeing unused kernel memory: 1024K (c0900000 - c0a00000)
+
+INIT: version 2.88 booting
+
+Starting udev
+udevd[738]: starting version 3.2
+random: udevd: uninitialized urandom read (16 bytes read)
+random: udevd: uninitialized urandom read (16 bytes read)
+random: udevd: uninitialized urandom read (16 bytes read)
+udevd[739]: starting eudev-3.2
+random: udevd: uninitialized urandom read (16 bytes read)
+FAT-fs (mmcblk0): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+Populating dev cache
+
+random: dd: uninitialized urandom read (512 bytes read)
+hwclock: can't open '/dev/misc/rtc': No such file or directory
+
+Sat Sep  7 00:56:43 UTC 2019
+
+hwclock: can't open '/dev/misc/rtc': No such file or directory
+
+Starting internet superserver: inetd.
+
+Running postinst /etc/rpm-postinsts/100-sysvinit-inittab...
+
+update-rc.d: /etc/init.d/run-postinsts exists during rc.d purge (continuing)
+
+ Removing any system startup links for run-postinsts ...
+
+  /etc/rcS.d/S99run-postinsts
+
+
+INIT: Entering runlevel: 5
+
+
+Configuring network interfaces... IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+done.
+
+Starting Dropbear SSH server: random: dropbearkey: uninitialized urandom read (32 bytes read)
+Generating key, this may take a while...
+
+random: dropbearkey: uninitialized urandom read (32 bytes read)
+random: dropbearkey: uninitialized urandom read (32 bytes read)
+Public key portion is:
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCNcTnQK41/8xTr67/xpMxR/OZwycUSdOkjjCTXixWIl24t3Y5uEhoxKaBpqrgLMH/269lrandom: dropbear: uninitialized urandom read (32 bytes read)
+OBrVNSLgiiSefVZt/kw92GEEbtv90X2/ZlatghAtMDOSIS2VC7tJ9Fw4wLUCL5uGMVoF/jqma+hMhlgVL83Yw7sB3g0PhS9F+J3VDs0uCDK88hckRNiX5j5VApQQbTY+ofLK3Z0gTydOYbgG/gTJiZUyVgHXS0ivHohBqr1GAe34ido9c2OobuQ2IodXWzl/nbSFHYK9Z+DKEYvFSHjz6m+OHf8bl8OumfLeijxi3F1FZDfbImEV7JvtRWQmyhKTyi8nra0eIsL34aGdx root@alinx
+
+Fingerprint: md5 48:32:91:c9:dd:cf:4e:4e:04:2b:9b:3a:e1:70:46:53
+
+dropbear.
+
+hwclock: can't open '/dev/misc/rtc': No such file or directory
+
+[33mInit Start
+
+[39mmount: mounting /dev/mmcblk0p1 on /sd failed: No such file or directory
+
+[33mInit End
+
+[39mStarting syslogd/klogd: done
+
+Starting tcf-agent: random: tcf-agent: uninitialized urandom read (16 bytes read)
+OK
+PetaLinux 2017.4 alinx /dev/ttyPS0
+
+alinx login: root
+Password: 
+root@alinx:~# 
+root@alinx:~# cat /proc/cpuinfo
+processor	: 0
+model name	: ARMv7 Processor rev 0 (v7l)
+BogoMIPS	: 666.66
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpd32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x3
+CPU part	: 0xc09
+CPU revision	: 0
+
+processor	: 1
+model name	: ARMv7 Processor rev 0 (v7l)
+BogoMIPS	: 666.66
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpd32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x3
+CPU part	: 0xc09
+CPU revision	: 0
+
+Hardware	: Xilinx Zynq Platform
+Revision	: 0003
+Serial		: 0000000000000000
+root@alinx:~# 
