@@ -3,5 +3,5 @@
 # Description
 Development board EBAZ4205 projects and learning meterials.
 # Projects List
-1. PS: PetaLinux
+1. PS: PetaLinux (Aug.5 ,2020)
 # Meterials List
