@@ -88,8 +88,18 @@ $ sudo apt install cloud-init
 ```
 3. 安装您需要的程序/工具
 在本镜像中, 为尽可能缩小镜像大小, 我没有安装任何其它工具. 您可以且应当在此时配置您需要的所有工具.
-4. 关闭虚拟机
-5. 清除配置信息
+4. 关闭防火墙和SELinux
+```
+# ufw disable
+# getenforce 
+```
+5. 配置GRUB
+```
+# echo GRUB_CMDLINE_LINUX=" console=ttyS0,115200n8" >> /etc/default/grub
+# update-grub
+```
+6. 关闭虚拟机
+7. 清除配置信息
 在OpenStack上启动实例时, 每个虚拟机都有不同(不定)的MAC地址, 磁盘大小等. 因此在上传至glance之前, 我们需要清除这些配置信息.
 ```
 # virt-sysprep -d <Your_KVM_name>
