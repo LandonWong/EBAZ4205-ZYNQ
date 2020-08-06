@@ -53,4 +53,28 @@ Domain installation still in progress. You can reconnect to the console to compl
 现在已经可以对虚拟机进行操作了. 首先先根据提示完成系统的安装.\
 关于磁盘的分区方式, 推荐使用Ubuntu安装引导程序的默认选项, 其包括了一个启动分区, 一个swap分区和主分区等.
 ### 系统配置
-在完成了系统安装后, 需要我们继续对此虚拟机进行配置
+在完成了系统安装后, 需要我们继续对此虚拟机进行配置.
+1. SSH配置
+使用以下命令安装SSH Server. 这样在OpenStack启动实例后, 您可以通过SSH连接至实例.
+```
+$ sudo apt install openssh-server
+```
+2. 安装`cloud-init`
+```
+$ sudo apt install cloud-init
+```
+服务包cloud-init的主要功能是, 
+3. 安装您需要的程序/工具
+在本镜像中, 为尽可能缩小镜像大小, 我没有安装任何其它工具. 您可以且应当在此时配置您需要的所有工具.
+4. 关闭虚拟机
+5. 清除配置信息
+在OpenStack上启动实例时, 每个虚拟机都有不同(不定)的MAC地址, 磁盘大小等. 因此在上传至glance之前, 我们需要清除这些配置信息.
+```
+# virt-sysprep -d <Your_KVM_name>
+```
+## 上传镜像
+至此, 镜像制作完成. 下面删除此虚拟机(但绝对不能删除磁盘)
+```
+virsh undefine <Your_KVM_name>
+```
+之后就可以进入OpenStack CLI或DashBoard, 上传此镜像了.
