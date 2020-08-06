@@ -1,7 +1,14 @@
-# 制作可以在OpenStack上运行的KVM虚拟机镜像(以Ubuntu 20.04为例)
-## wangsongyue18@mails.ucas.ac.cn
+制作可以在OpenStack上运行的KVM虚拟机镜像(以Ubuntu 20.04为例)
+=====
+<wangsongyue18@mails.ucas.ac.cn>
+-----
 # 简介
-实验内容: 制作一个可以在OpenStack上正确运行的KVM虚拟机镜像.\
+
+## 实验内容
+
+制作一个可以在OpenStack上正确运行的KVM虚拟机镜像.
+
+## 开发环境
 本次实验使用Linux发行版Ubuntu 20.04桌面版为系统镜像进行配置(`ubuntu-20.04-desktop-amd64.iso`), 配置的宿主机环境为Ubuntu 18.04. \
 另外, 您需要保证您的计算机支持KVM虚拟化. 您可通过以下命令查询.
 ```
