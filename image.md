@@ -59,29 +59,6 @@ Domain installation still in progress. You can reconnect to the console to compl
 ```
 $ sudo apt install ssh
 ```
-下面配置ssh, 添加管理key.
-```
-$ sudo -s
-# cd ~/.ssh
-# find / -name authorized_keys
-/root/.ssh/authorized_keys
-./authorized_keys
-```
-下面我们开启秘钥登录, 关闭密码登录.
-```
-vim /etc/sshd/sshd_config
-```
-作以下修改.
-```
-File "/etc/sshd/sshd_config"
-...
-- PubkeyAuthentication no
-+ PubkeyAuthentication yes
-...
-- PasswordAuthentication no
-+ PasswordAuthentication yes
-...
-```
 2. **安装`cloud-init`**
 ```
 $ sudo apt install cloud-init
@@ -93,13 +70,8 @@ $ sudo apt install cloud-init
 # ufw disable
 # getenforce 
 ```
-5. **配置GRUB**
-```
-# echo GRUB_CMDLINE_LINUX=" console=ttyS0,115200n8" >> /etc/default/grub
-# update-grub
-```
-6. **关闭虚拟机**
-7. **清除配置信息** \
+5. **关闭虚拟机**
+6. **清除配置信息** \
 在OpenStack上启动实例时, 每个虚拟机都有不同(不定)的MAC地址, 磁盘大小等. 因此在上传至glance之前, 我们需要清除这些配置信息.
 ```
 # virt-sysprep -d <Your_KVM_name>
