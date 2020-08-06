@@ -15,6 +15,7 @@ grep -E -o '(vmx|svm)' /proc/cpuinfo
 ```
 $ sudo apt install qemu
 $ sudo apt install virt
+$ sudo apt install libguestfs-tools
 ```
 ## 创建磁盘
 在OpenStack上运行的KVM需要镜像的磁盘格式为`qcow2`. 下面首先利用`qemu-img`工具创建一块`qcow2`格式的虚拟磁盘. 命令格式如下.
@@ -66,10 +67,10 @@ $ sudo apt install cloud-init
 ```
 3. **安装您需要的程序/工具** \
 在本镜像中, 为尽可能缩小镜像大小, 我仅安装了gcc. 您可以且应当在此时配置您需要的所有工具.
-4. **关闭防火墙和SELinux**
+4. **关闭防火墙**
 ```
 # ufw disable
-# getenforce 
+
 ```
 5. **关闭虚拟机**
 6. **清除配置信息** \
