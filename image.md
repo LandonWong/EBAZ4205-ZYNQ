@@ -65,7 +65,7 @@ $ sudo -s
 # cd ~/.ssh
 # find / -name authorized_keys
 /root/.ssh/authorized_keys
-/home/ubuntu/.ssh/authorized_keys
+./authorized_keys
 ```
 下面我们开启秘钥登录, 关闭密码登录.
 ```
