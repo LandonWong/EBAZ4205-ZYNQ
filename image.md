@@ -59,12 +59,13 @@ Domain installation still in progress. You can reconnect to the console to compl
 ```
 $ sudo apt install ssh
 ```
+若下载速度过慢, 可以先换源.
 2. **安装`cloud-init`**
 ```
 $ sudo apt install cloud-init
 ```
 3. **安装您需要的程序/工具** \
-在本镜像中, 为尽可能缩小镜像大小, 我没有安装任何其它工具. 您可以且应当在此时配置您需要的所有工具.
+在本镜像中, 为尽可能缩小镜像大小, 我仅安装了gcc. 您可以且应当在此时配置您需要的所有工具.
 4. **关闭防火墙和SELinux**
 ```
 # ufw disable
