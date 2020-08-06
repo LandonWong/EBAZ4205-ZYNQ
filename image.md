@@ -57,13 +57,35 @@ Domain installation still in progress. You can reconnect to the console to compl
 1. SSH配置
 使用以下命令安装SSH Server. 这样在OpenStack启动实例后, 您可以通过SSH连接至实例.
 ```
-$ sudo apt install openssh-server
+$ sudo apt install ssh
+```
+下面配置ssh, 添加管理key.
+```
+$ sudo -s
+# cd ~/.ssh
+# find / -name authorized_keys
+/root/.ssh/authorized_keys
+/home/ubuntu/.ssh/authorized_keys
+```
+下面我们开启秘钥登录, 关闭密码登录.
+```
+vim /etc/sshd/sshd_config
+```
+作以下修改.
+```
+File "/etc/sshd/sshd_config"
+...
+- PubkeyAuthentication no
++ PubkeyAuthentication yes
+...
+- PasswordAuthentication no
++ PasswordAuthentication yes
+...
 ```
 2. 安装`cloud-init`
 ```
 $ sudo apt install cloud-init
 ```
-服务包cloud-init的主要功能是, 
 3. 安装您需要的程序/工具
 在本镜像中, 为尽可能缩小镜像大小, 我没有安装任何其它工具. 您可以且应当在此时配置您需要的所有工具.
 4. 关闭虚拟机
