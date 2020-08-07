@@ -1,7 +1,4 @@
-制作可以在OpenStack上运行的KVM虚拟机镜像(以Ubuntu 20.04为例)
-=====
-<wangsongyue18@mails.ucas.ac.cn>
------
+制作可以在OpenStack上运行的KVM虚拟机镜像(以Ubuntu base为例)
 # 简介
 
 ## 实验内容
@@ -9,7 +6,7 @@
 制作一个可以在OpenStack上正确运行的KVM虚拟机镜像.
 
 ## 开发环境
-本次实验使用Linux发行版Ubuntu 20.04桌面版为系统镜像进行配置(`ubuntu-20.04-desktop-amd64.iso`), 配置的宿主机环境为Ubuntu 18.04. \
+本次实验使用Linux发行版Ubuntu 20.04桌面版为系统镜像进行配置(`ubuntu-base-18.04.4-desktop-amd64.iso`), 配置的宿主机环境为Ubuntu 18.04. \
 另外, 您需要保证您的计算机支持KVM虚拟化. 您可通过以下命令查询.
 ```
 grep -E -o '(vmx|svm)' /proc/cpuinfo
@@ -31,7 +28,7 @@ qemu-img create -f <dist_format> <disk_img_path> <size>
 ```
 下面是例子, 在本目录下创建了一块40G大小的, 名称为`ubuntu.qcow2`的虚拟磁盘.
 ```
-$ qemu-img create -f qcow2 ./ubuntu.qcow2 40G
+$ qemu-img create -f qcow2 ./ubuntu.qcow2 4G
 ```
 注意: 此虚拟磁盘在创建之初并不会真正耗费40G空间, 其实际大小根据后期写入弹性伸缩.
 ## 挂载安装盘启动
@@ -40,11 +37,11 @@ $ qemu-img create -f qcow2 ./ubuntu.qcow2 40G
 首先我们挂载`ubuntu-20.04-desktop-amd64.iso`和这块虚拟磁盘创建并启动一个KVM虚拟机.
 ```
 $ virt-install --virt-type kvm --name Ubuntu \
-> --ram 8192 --disk ./ubuntu.qcow2,format=qcow2 \
+> --ram 1024 --disk ./ubuntu.qcow2,format=qcow2 \
 > --graphics vnc,listen=0.0.0.0 --noautoconsole \
 > --os-type=linux --os-variant=ubuntu16.04 \
 > --network network=default \
-> --cdrom=/home/landon/Downloads/ubuntu-20.04-desktop-amd64.iso 
+> --cdrom=/home/landon/Downloads/ubuntu-base-18.04-desktop-amd64.iso 
 ```
 其中各选项根据您的实际选择. 成功启动后, 您将看到以下提示.
 ```
